@@ -18,3 +18,6 @@ func _process(delta):
 		velocity.y += 1
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
+		
+	position += velocity * delta
+	position = position.clamp(Vector2.ZERO, screen_size)
