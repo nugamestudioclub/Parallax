@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://gm4n7jdwqj67"]
+
+[ext_resource type="Texture2D" uid="uid://btbcba2kofjqa" path="res://2d_sprite_animation_assets/Screenshot 2023-11-09 at 2.41.40 PM.png" id="1_xe3ic"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yp8e5"]
+size = Vector2(86, 65)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xe3ic")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_yp8e5")
