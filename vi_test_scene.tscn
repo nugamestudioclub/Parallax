@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c61yn1tsxxmtk"]
+
+[ext_resource type="PackedScene" uid="uid://dfbehluabfs6p" path="res://player_new.tscn" id="1_2qsnw"]
+[ext_resource type="PackedScene" uid="uid://gm4n7jdwqj67" path="res://test_collision.tscn" id="2_abb0k"]
+
+[node name="Node" type="Node"]
+
+[node name="Starting_Position" type="Marker2D" parent="."]
+position = Vector2(240, 450)
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("1_2qsnw")]
+position = Vector2(109, 282)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("2_abb0k")]
+position = Vector2(437, 285)
