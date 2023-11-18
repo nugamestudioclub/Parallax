@@ -9,6 +9,7 @@
 position = Vector2(240, 450)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_2m8gm")]
+speed = 400
 
 [node name="StaticBody2D" parent="." instance=ExtResource("2_jqcpd")]
 position = Vector2(783, 215)
