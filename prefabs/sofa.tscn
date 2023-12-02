@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yp8e5"]
 size = Vector2(152, 65)
 
-[node name="StaticBody2D" type="StaticBody2D"]
+[node name="StaticBody2D" type="StaticBody2D" groups=["Interactables"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_vfibt")
