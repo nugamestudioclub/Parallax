@@ -7,7 +7,7 @@ var current_object
 func _process(_delta):
 	if interact:
 		if Input.is_action_just_pressed("interact"):
-			print("you just interacted with " + current_object.name)
+			current_object.on_interact()
 
 func _on_body_entered(body):
 	if body.is_in_group("Interactables"):
