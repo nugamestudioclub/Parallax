@@ -1,9 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://c61yn1tsxxmtk"]
+[gd_scene load_steps=7 format=3 uid="uid://c61yn1tsxxmtk"]
 
 [ext_resource type="PackedScene" uid="uid://dfbehluabfs6p" path="res://prefabs/player_new.tscn" id="1_2qsnw"]
+[ext_resource type="PackedScene" uid="uid://ccunmu41kcexn" path="res://prefabs/rug.tscn" id="1_r2ktc"]
 [ext_resource type="PackedScene" uid="uid://gm4n7jdwqj67" path="res://prefabs/sofa.tscn" id="2_abb0k"]
+[ext_resource type="PackedScene" uid="uid://3rti72e4wfw2" path="res://prefabs/dresser.tscn" id="3_6yacp"]
+[ext_resource type="PackedScene" uid="uid://dkkfh20o51g5j" path="res://prefabs/mirror.tscn" id="4_in5uv"]
+[ext_resource type="PackedScene" uid="uid://cbqgigj4nqhg4" path="res://prefabs/nightstand.tscn" id="6_f3vir"]
 
 [node name="Node" type="Node"]
+
+[node name="rug" parent="." instance=ExtResource("1_r2ktc")]
+position = Vector2(406, 278)
 
 [node name="Starting_Position" type="Marker2D" parent="."]
 position = Vector2(240, 450)
@@ -11,5 +18,14 @@ position = Vector2(240, 450)
 [node name="CharacterBody2D2" parent="." instance=ExtResource("1_2qsnw")]
 position = Vector2(109, 282)
 
+[node name="dresser" parent="." instance=ExtResource("3_6yacp")]
+position = Vector2(771, 250)
+
 [node name="StaticBody2D" parent="." instance=ExtResource("2_abb0k")]
-position = Vector2(437, 285)
+position = Vector2(380, 320)
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("4_in5uv")]
+position = Vector2(377, 63)
+
+[node name="nightstand" parent="." instance=ExtResource("6_f3vir")]
+position = Vector2(75, 115)

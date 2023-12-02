@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dp25oj3bfj2uy"]
+[gd_scene load_steps=4 format=3 uid="uid://dkkfh20o51g5j"]
 
 [ext_resource type="Texture2D" uid="uid://dxmepgbminsmv" path="res://2d_sprite_animation_assets/mirror1.png" id="1_fmwke"]
+[ext_resource type="Script" path="res://scripts/interact_object_text.gd" id="1_tbob0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_axpx7"]
 size = Vector2(77.5, 159)
 
-[node name="StaticBody2D" type="StaticBody2D"]
+[node name="StaticBody2D" type="StaticBody2D" groups=["Interactables"]]
+script = ExtResource("1_tbob0")
+object_text = "You see your reflection"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.11429, 1.31667)

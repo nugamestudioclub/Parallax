@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://1je7l5nrvacv"]
+[gd_scene load_steps=4 format=3 uid="uid://3rti72e4wfw2"]
 
 [ext_resource type="Texture2D" uid="uid://dbye58iuwn25w" path="res://2d_sprite_animation_assets/dresser.png" id="1_4q1dv"]
+[ext_resource type="Script" path="res://scripts/interact_object_text.gd" id="1_mk8og"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1t5g"]
 size = Vector2(136, 136)
 
-[node name="dresser" type="StaticBody2D"]
+[node name="dresser" type="StaticBody2D" groups=["Interactables"]]
+script = ExtResource("1_mk8og")
+object_text = "This is a dresser"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_i1t5g")
