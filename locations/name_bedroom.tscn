@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://scph305jasxt"]
+
+[ext_resource type="Texture2D" uid="uid://cnjgdog2ml0t4" path="res://2d_sprite_animation_assets/blueprint2.png" id="1_1a53y"]
+[ext_resource type="PackedScene" uid="uid://du2wo2jo12ii4" path="res://prefabs/rug.tscn" id="2_0y7bm"]
+[ext_resource type="PackedScene" uid="uid://1je7l5nrvacv" path="res://prefabs/dresser.tscn" id="3_55o21"]
+[ext_resource type="PackedScene" uid="uid://dp25oj3bfj2uy" path="res://prefabs/mirror.tscn" id="4_44uaj"]
+
+[node name="name_bedroom" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(569.75, 327.75)
+scale = Vector2(1.34247, 1.26413)
+texture = ExtResource("1_1a53y")
+
+[node name="rug" parent="." instance=ExtResource("2_0y7bm")]
+position = Vector2(568, 402)
+
+[node name="dresser" parent="." instance=ExtResource("3_55o21")]
+position = Vector2(579, 228)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("4_44uaj")]
+position = Vector2(726, 211)

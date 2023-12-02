@@ -3,15 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://dbye58iuwn25w" path="res://2d_sprite_animation_assets/dresser.png" id="1_4q1dv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1t5g"]
-size = Vector2(62, 61.5)
+size = Vector2(136, 136)
 
 [node name="dresser" type="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.25)
 shape = SubResource("RectangleShape2D_i1t5g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 1.90735e-06)
-scale = Vector2(0.625, 0.61)
+scale = Vector2(1.36562, 1.35625)
 texture = ExtResource("1_4q1dv")

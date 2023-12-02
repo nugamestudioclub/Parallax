@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://crhtujqg6s0yq"]
+
+[ext_resource type="Texture2D" uid="uid://bpskcyt5uie2b" path="res://2d_sprite_animation_assets/nightstand.png" id="1_totbn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3fvf"]
+size = Vector2(80.5, 70)
+
+[node name="nightstand" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 1.90735e-06)
+scale = Vector2(1.15, 1.15)
+texture = ExtResource("1_totbn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.25, 0)
+shape = SubResource("RectangleShape2D_n3fvf")
