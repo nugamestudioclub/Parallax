@@ -1,3 +1,16 @@
-[gd_scene format=3 uid="uid://dpcy5ovfgppci"]
+[gd_scene load_steps=4 format=3 uid="uid://dpcy5ovfgppci"]
+
+[ext_resource type="PackedScene" uid="uid://dfbehluabfs6p" path="res://prefabs/player_new.tscn" id="1_y27ro"]
+[ext_resource type="PackedScene" uid="uid://dp25oj3bfj2uy" path="res://prefabs/mirror.tscn" id="2_lp65u"]
+[ext_resource type="PackedScene" uid="uid://1je7l5nrvacv" path="res://prefabs/dresser.tscn" id="3_xwknl"]
 
 [node name="bedroom" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_y27ro")]
+position = Vector2(775, 307)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("2_lp65u")]
+position = Vector2(378, 230)
+
+[node name="dresser" parent="." instance=ExtResource("3_xwknl")]
+position = Vector2(458, 260)

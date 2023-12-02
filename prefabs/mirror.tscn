@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp25oj3bfj2uy"]
+
+[ext_resource type="Texture2D" uid="uid://dxmepgbminsmv" path="res://2d_sprite_animation_assets/mirror1.png" id="1_fmwke"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_axpx7"]
+size = Vector2(71, 120)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fmwke")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_axpx7")
