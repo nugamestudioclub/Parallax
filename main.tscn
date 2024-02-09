@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdh52362fr70w"]
+
+[ext_resource type="PackedScene" uid="uid://usb0p5faef4f" path="res://test_scene.tscn" id="1_vyex4"]
+
+[node name="Main" type="Node"]
+
+[node name="Node" parent="." instance=ExtResource("1_vyex4")]
