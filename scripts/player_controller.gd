@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var ACCEL: float  = 1600
 @export var MAX_SPEED: float  = 400
 @export var FRIC: float  = 1600
-#@export var speed = 400
+
 var screensize
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -35,8 +35,3 @@ func input_handler(delta: float) -> void:
 		sprite.stop()
 	
 	velocity.normalized()
-#
-#
-#func _physics_process(delta):
-	#get_input()
-	#move_and_collide(velocity * delta)
