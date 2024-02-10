@@ -1,14 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://gm4n7jdwqj67"]
+[gd_scene load_steps=5 format=3 uid="uid://gm4n7jdwqj67"]
 
 [ext_resource type="Script" path="res://scripts/interact_object_text.gd" id="1_uhkwq"]
 [ext_resource type="Texture2D" uid="uid://dv47e6iqrkhgn" path="res://2d_sprite_animation_assets/sofa.png" id="1_vfibt"]
+[ext_resource type="Resource" uid="uid://cu43g75sq5nvk" path="res://dialogue/BedroomDialogue.dialogue" id="2_rjx0o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yp8e5"]
 size = Vector2(152, 65)
 
 [node name="StaticBody2D" type="StaticBody2D" groups=["Interactables"]]
 script = ExtResource("1_uhkwq")
-object_text = "This is a sofa"
+object_dialogue_scene = ExtResource("2_rjx0o")
+object_dialogue_start = "sofa"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_vfibt")

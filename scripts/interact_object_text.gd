@@ -1,6 +1,6 @@
 extends Node
-@export var object_text: String
+@export var object_dialogue_scene: DialogueResource
+@export var object_dialogue_start: String
 
 func on_interact():
-	print(object_text) # this will be changed to an actual textbox whenever that is implemented
-
+	DialogueManager.show_dialogue_balloon(object_dialogue_scene, object_dialogue_start)

@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpcy5ovfgppci"]
+[gd_scene load_steps=7 format=3 uid="uid://ds0bbq0ulj3u4"]
 
 [ext_resource type="Texture2D" uid="uid://ctvy56wjxpd7b" path="res://2d_sprite_animation_assets/blueprint.png" id="1_3s4h8"]
-[ext_resource type="PackedScene" uid="uid://crhtujqg6s0yq" path="res://prefabs/nightstand.tscn" id="2_5ss5t"]
-[ext_resource type="PackedScene" uid="uid://du2wo2jo12ii4" path="res://prefabs/rug.tscn" id="2_xl83d"]
+[ext_resource type="PackedScene" uid="uid://cbqgigj4nqhg4" path="res://prefabs/nightstand.tscn" id="2_5ss5t"]
+[ext_resource type="PackedScene" uid="uid://ccunmu41kcexn" path="res://prefabs/rug.tscn" id="2_xl83d"]
 [ext_resource type="PackedScene" uid="uid://dfbehluabfs6p" path="res://prefabs/player_new.tscn" id="3_aagoq"]
-[ext_resource type="PackedScene" uid="uid://dp25oj3bfj2uy" path="res://prefabs/mirror.tscn" id="4_hcqox"]
-[ext_resource type="PackedScene" uid="uid://1je7l5nrvacv" path="res://prefabs/dresser.tscn" id="5_rstmb"]
+[ext_resource type="PackedScene" uid="uid://dkkfh20o51g5j" path="res://prefabs/mirror.tscn" id="4_hcqox"]
+[ext_resource type="PackedScene" uid="uid://3rti72e4wfw2" path="res://prefabs/dresser.tscn" id="5_rstmb"]
 
 [node name="bedroom" type="Node2D"]
 
