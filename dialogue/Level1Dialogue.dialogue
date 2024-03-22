@@ -1,0 +1,196 @@
+#------------------------------------------Marcie in Bedroom----------------------------------------------
+~ marcie
+Marcie: It’s good to see you again…
+Marcie: I’m glad to see that you’re here, but are you feeling okay? You’re skipping school again.
+- I’m fine.
+	Marcie: That’s good to hear! Shall we hang out, then?
+- I’m not feeling up for school…
+	Marcie: Yeah, I understand. In that case, we’ll have an off day.
+Marcie: I need to head to school, but I’ll be back during lunch!
+Marcie: So, hmm…
+Marcie: I can give you a bit of allowance, and while I’m at school, you can run over to the bakery and get us both a sweet treat! How does that sound?
+set talked_to_marcie_1 = "complete"
+=> END 
+#---------------------------------------------------------------------------------------------------------
+#-----------------------------------------Bedroom Interactables-------------------------------------------
+~ nightstand
+if talked_to_marcie_1 == "complete":
+	You: Turns on and off the light.
+else:
+	Marcie: Um, could you come over here for a second?
+=> END 
+
+~ bed
+if bakery_complete == "complete":
+	You: It calls you… But you probably should wait for Marcie’s permission.
+elif talked_to_marcie_1 == "complete":
+	You: It calls you… but you must resist…
+else:
+	Marcie: Um, could you come over here for a second?
+=> END
+
+~ stuffed_animal
+if talked_to_marcie_1 == "complete":
+	You: Marcie has good taste in decor.
+else:
+	Marcie: Um, could you come over here for a second?
+=> END 
+
+~ picture_on_the_wall
+if talked_to_marcie_1 == "complete":
+	You: A picture of Marcie and her friends.
+else:
+	Marcie: Um, could you come over here for a second?
+=> END 
+
+~ dresser
+if talked_to_marcie_1 == "complete":
+	You: The clothes inside are neatly folded.
+else:
+	Marcie: Um, could you come over here for a second?
+=> END 
+
+~ mirror
+if bakery_complete == "complete":
+	You: …
+elif talked_to_marcie_1 == "complete":
+	You: No… not yet…
+else:
+	Marcie: Um, could you come over here for a second?
+=> END 
+
+~ door
+if talked_to_marcie_1 == "complete":
+	You: Exit to Living Room
+else:
+	Marcie: Um, could you come over here for a second?
+=> END 
+#----------------------------------------------------------------------------------------------------------
+#--------------------------------------------Living Room Interactables-------------------------------------
+~ couch 
+if bakery_complete == "complete":
+	You: A big fluffy couch. It’s a little deformed from overuse.
+	- Sleep (end exploration)
+	- Explore some more. (keep exploring)
+	#change some sort of sleep state here
+else:
+	You: A big fluffy couch. It’s a little deformed from overuse.
+=> END 
+
+~ tv 
+You: A large flatscreen TV. You’ve watched many movies with her.
+=> END 
+
+~ armchair 
+You: A soft armchair. If you sit in it you’ll sink in…
+=> END 
+
+~ coffee_table
+You: A coffee table with textbooks and a mug. Looks like Marcie was studying last night.
+=> END 
+
+~ shelves
+You: Shelves with a lot of plants. They seem to be doing well.
+=> END 
+
+~ pictures
+You: Pictures of Marcie as she was growing up…
+=> END 
+
+~ door_1
+You: Exit to Marcie’s Room
+=> END 
+
+~ front_door 
+You: Exit to Neighborhood
+=> END 
+#----------------------------------------------------------------------------------------------------------
+#---------------------------------Neighborhood Interactables-----------------------------------------------
+~ light_poles
+You: A light pole.
+=> END 
+
+~ building1
+You: You don’t want to enter (BUILDING NAME) right now…
+=> END 
+
+~ building2
+if bakery_complete == "complete":
+	You: You should head home.
+else:
+	You: This isn’t the bakery…
+=> END 
+
+~ building3
+if bakery_complete == "complete":
+	You: You’re feeling a bit tired…
+else:
+	You: You should hurry to the bakery before the line gets long.
+=> END 
+
+~ building4
+You: The door is locked.
+=> END 
+
+~ bikes
+You: A bunch of bikes locked up on a bike rack. None of them are yours.
+=> END 
+
+~ bakery
+You: Exit to Bakery
+=> END 
+
+~ marcie_house
+You: Exit to Living Room
+=> END
+#--------------------------------------------------------------------------------------------------------
+#-----------------------------------Interactables in Bakery----------------------------------------------
+~ glass_case
+if bakery_complete == "complete":
+	You: An assortment of baked goods are lined up neatly within.
+else:
+	You: An assortment of baked goods are lined up neatly within. Marcie’s favorite pastry is macarons.
+	set pastry = "macaron known"
+=> END 
+
+~ tables 
+if bakery_complete == "complete":
+	You: You’re supposed to share with Marcie.
+else:
+	You: Tables for two. But there’s only one of you…
+=> END 
+
+~ bakery_door
+if bakery_complete == "complete":
+	You: Exit to Neighborhood
+else:
+	You: You haven’t bought a pastry yet.
+=> END 
+
+~ register
+if bakery_complete != "complete":
+	if pastry == "macaron known":
+		Cashier: Welcome to ___ Bakery! How can I help you today?
+		- Can I have some macarons?
+			Cashier: Alright! One box of macarons, coming up. Here is your total!
+			set pastry = "macarons"
+		- Can I have two cinnamon buns?
+			Cashier: Alright! Two cinnamon buns, coming up. Here is your total!
+			set pastry = "cinnamon buns"
+		- Um… I’m still choosing.
+			Cashier: Take your time!
+	else:
+		Cashier: Welcome to ___ Bakery! How can I help you today?
+		- Can I have two cinnamon buns?
+			Cashier: Alright! Two cinnamon buns, coming up. Here is your total!
+			set pastry = "cinnamon buns"
+		- Um… I’m still choosing.
+			Cashier: Take your time!
+	if pastry == "macarons" or pastry == "cinnamon buns":
+		Cashier: Thank you for your purchase!
+		You obtain {{pastry}}.
+		set bakery_complete = "complete"
+else:
+	Cashier: Thank you for your purchase!
+=> END 
+#--------------------------------------------------------------------------------------------------------

@@ -1,16 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://3rti72e4wfw2"]
+[gd_scene load_steps=6 format=3 uid="uid://3rti72e4wfw2"]
 
 [ext_resource type="Texture2D" uid="uid://dbye58iuwn25w" path="res://2d_sprite_animation_assets/dresser.png" id="1_4q1dv"]
-[ext_resource type="Script" path="res://scripts/interact_object_text.gd" id="1_mk8og"]
-[ext_resource type="Resource" uid="uid://cu43g75sq5nvk" path="res://dialogue/BedroomDialogue.dialogue" id="2_jhh5u"]
+[ext_resource type="Resource" uid="uid://cu43g75sq5nvk" path="res://dialogue/Level1Dialogue.dialogue" id="2_jhh5u"]
+[ext_resource type="PackedScene" uid="uid://d34ecfc1785tp" path="res://prefabs/interactable.tscn" id="2_y15fa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1t5g"]
 size = Vector2(136, 136)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5i2i"]
+size = Vector2(155, 156)
+
 [node name="dresser" type="StaticBody2D" groups=["Interactables"]]
-script = ExtResource("1_mk8og")
-object_dialogue_scene = ExtResource("2_jhh5u")
-object_dialogue_start = "dresser"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_i1t5g")
@@ -18,3 +18,11 @@ shape = SubResource("RectangleShape2D_i1t5g")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.36562, 1.35625)
 texture = ExtResource("1_4q1dv")
+
+[node name="Interactable" parent="." instance=ExtResource("2_y15fa")]
+object_dialogue_scene = ExtResource("2_jhh5u")
+object_dialogue_start = "dresser"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(1.5, 1)
+shape = SubResource("RectangleShape2D_j5i2i")

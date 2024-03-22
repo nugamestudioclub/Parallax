@@ -1,16 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkkfh20o51g5j"]
+[gd_scene load_steps=6 format=3 uid="uid://dkkfh20o51g5j"]
 
 [ext_resource type="Texture2D" uid="uid://dxmepgbminsmv" path="res://2d_sprite_animation_assets/mirror1.png" id="1_fmwke"]
-[ext_resource type="Script" path="res://scripts/interact_object_text.gd" id="1_tbob0"]
-[ext_resource type="Resource" uid="uid://cu43g75sq5nvk" path="res://dialogue/BedroomDialogue.dialogue" id="2_v612n"]
+[ext_resource type="PackedScene" uid="uid://d34ecfc1785tp" path="res://prefabs/interactable.tscn" id="2_77frg"]
+[ext_resource type="Resource" uid="uid://cu43g75sq5nvk" path="res://dialogue/Level1Dialogue.dialogue" id="2_v612n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_axpx7"]
 size = Vector2(77.5, 159)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qk13p"]
+size = Vector2(89, 171)
+
 [node name="StaticBody2D" type="StaticBody2D" groups=["Interactables"]]
-script = ExtResource("1_tbob0")
-object_dialogue_scene = ExtResource("2_v612n")
-object_dialogue_start = "mirror"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.11429, 1.31667)
@@ -19,3 +19,11 @@ texture = ExtResource("1_fmwke")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.25, 0.5)
 shape = SubResource("RectangleShape2D_axpx7")
+
+[node name="Interactable" parent="." instance=ExtResource("2_77frg")]
+object_dialogue_scene = ExtResource("2_v612n")
+object_dialogue_start = "mirror"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(-0.5, 1.5)
+shape = SubResource("RectangleShape2D_qk13p")

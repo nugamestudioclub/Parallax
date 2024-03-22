@@ -1,16 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbqgigj4nqhg4"]
+[gd_scene load_steps=6 format=3 uid="uid://cbqgigj4nqhg4"]
 
-[ext_resource type="Script" path="res://scripts/interact_object_text.gd" id="1_rbwat"]
 [ext_resource type="Texture2D" uid="uid://bpskcyt5uie2b" path="res://2d_sprite_animation_assets/nightstand.png" id="1_totbn"]
-[ext_resource type="Resource" uid="uid://cu43g75sq5nvk" path="res://dialogue/BedroomDialogue.dialogue" id="2_ymwpv"]
+[ext_resource type="PackedScene" uid="uid://d34ecfc1785tp" path="res://prefabs/interactable.tscn" id="2_ftlp7"]
+[ext_resource type="Resource" uid="uid://cu43g75sq5nvk" path="res://dialogue/Level1Dialogue.dialogue" id="2_ymwpv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n3fvf"]
 size = Vector2(80.5, 70)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h6prn"]
+size = Vector2(90, 81)
+
 [node name="nightstand" type="StaticBody2D" groups=["Interactables"]]
-script = ExtResource("1_rbwat")
-object_dialogue_scene = ExtResource("2_ymwpv")
-object_dialogue_start = "nightstand"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 1.90735e-06)
@@ -20,3 +20,11 @@ texture = ExtResource("1_totbn")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.25, 0)
 shape = SubResource("RectangleShape2D_n3fvf")
+
+[node name="Interactable" parent="." instance=ExtResource("2_ftlp7")]
+object_dialogue_scene = ExtResource("2_ymwpv")
+object_dialogue_start = "nightstand"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_h6prn")

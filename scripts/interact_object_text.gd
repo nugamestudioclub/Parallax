@@ -4,3 +4,4 @@ extends Node
 
 func on_interact():
 	DialogueManager.show_dialogue_balloon(object_dialogue_scene, object_dialogue_start)
+	return

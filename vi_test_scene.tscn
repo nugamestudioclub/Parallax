@@ -1,31 +1,202 @@
-[gd_scene load_steps=7 format=3 uid="uid://c61yn1tsxxmtk"]
+[gd_scene load_steps=12 format=3 uid="uid://c61yn1tsxxmtk"]
 
 [ext_resource type="PackedScene" uid="uid://dfbehluabfs6p" path="res://prefabs/player_new.tscn" id="1_2qsnw"]
 [ext_resource type="PackedScene" uid="uid://ccunmu41kcexn" path="res://prefabs/rug.tscn" id="1_r2ktc"]
-[ext_resource type="PackedScene" uid="uid://gm4n7jdwqj67" path="res://prefabs/sofa.tscn" id="2_abb0k"]
 [ext_resource type="PackedScene" uid="uid://3rti72e4wfw2" path="res://prefabs/dresser.tscn" id="3_6yacp"]
 [ext_resource type="PackedScene" uid="uid://dkkfh20o51g5j" path="res://prefabs/mirror.tscn" id="4_in5uv"]
 [ext_resource type="PackedScene" uid="uid://cbqgigj4nqhg4" path="res://prefabs/nightstand.tscn" id="6_f3vir"]
+[ext_resource type="PackedScene" uid="uid://d34ecfc1785tp" path="res://prefabs/interactable.tscn" id="6_vt7vv"]
+[ext_resource type="Resource" uid="uid://cu43g75sq5nvk" path="res://dialogue/Level1Dialogue.dialogue" id="8_7mxic"]
+
+[sub_resource type="Gradient" id="Gradient_pqjip"]
+offsets = PackedFloat32Array(0, 0.993506, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.0454545, 0.0454545, 0.0454545, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_80au1"]
+gradient = SubResource("Gradient_pqjip")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ixo7p"]
+size = Vector2(52.5, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4e8w"]
+size = Vector2(62, 61)
 
 [node name="Node" type="Node"]
 
 [node name="rug" parent="." instance=ExtResource("1_r2ktc")]
-position = Vector2(406, 278)
+position = Vector2(187, 121)
 
 [node name="Starting_Position" type="Marker2D" parent="."]
 position = Vector2(240, 450)
 
 [node name="CharacterBody2D2" parent="." instance=ExtResource("1_2qsnw")]
-position = Vector2(109, 282)
+position = Vector2(38, 142)
 
 [node name="dresser" parent="." instance=ExtResource("3_6yacp")]
-position = Vector2(771, 250)
-
-[node name="StaticBody2D" parent="." instance=ExtResource("2_abb0k")]
-position = Vector2(380, 320)
+position = Vector2(376, 37)
 
 [node name="StaticBody2D2" parent="." instance=ExtResource("4_in5uv")]
-position = Vector2(377, 63)
+position = Vector2(161, 2)
 
 [node name="nightstand" parent="." instance=ExtResource("6_f3vir")]
-position = Vector2(75, 115)
+position = Vector2(51, 43)
+
+[node name="TestMarcie" type="StaticBody2D" parent="." groups=["Interactables"]]
+position = Vector2(-300, -100)
+
+[node name="Sprite2D" type="Sprite2D" parent="TestMarcie"]
+position = Vector2(559.5, 146.5)
+scale = Vector2(0.828125, 0.859375)
+texture = SubResource("GradientTexture2D_80au1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestMarcie"]
+position = Vector2(559.25, 146.5)
+shape = SubResource("RectangleShape2D_ixo7p")
+
+[node name="Interactable" parent="TestMarcie" instance=ExtResource("6_vt7vv")]
+object_dialogue_scene = ExtResource("8_7mxic")
+object_dialogue_start = "marcie"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestMarcie/Interactable"]
+position = Vector2(559, 146.5)
+shape = SubResource("RectangleShape2D_b4e8w")
+
+[node name="TestCouch" type="StaticBody2D" parent="." groups=["Interactables"]]
+position = Vector2(-510, 186)
+
+[node name="Sprite2D" type="Sprite2D" parent="TestCouch"]
+position = Vector2(559.5, 146.5)
+scale = Vector2(0.828125, 0.859375)
+texture = SubResource("GradientTexture2D_80au1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestCouch"]
+position = Vector2(559.25, 146.5)
+shape = SubResource("RectangleShape2D_ixo7p")
+
+[node name="Interactable" parent="TestCouch" instance=ExtResource("6_vt7vv")]
+object_dialogue_scene = ExtResource("8_7mxic")
+object_dialogue_start = "couch"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestCouch/Interactable"]
+position = Vector2(559, 146.5)
+shape = SubResource("RectangleShape2D_b4e8w")
+
+[node name="TestBuilding1" type="StaticBody2D" parent="." groups=["Interactables"]]
+position = Vector2(-136, 161)
+
+[node name="Sprite2D" type="Sprite2D" parent="TestBuilding1"]
+position = Vector2(559.5, 146.5)
+scale = Vector2(0.828125, 0.859375)
+texture = SubResource("GradientTexture2D_80au1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestBuilding1"]
+position = Vector2(559.25, 146.5)
+shape = SubResource("RectangleShape2D_ixo7p")
+
+[node name="Interactable" parent="TestBuilding1" instance=ExtResource("6_vt7vv")]
+object_dialogue_scene = ExtResource("8_7mxic")
+object_dialogue_start = "building2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestBuilding1/Interactable"]
+position = Vector2(559, 146.5)
+shape = SubResource("RectangleShape2D_b4e8w")
+
+[node name="TestBuilding2" type="StaticBody2D" parent="." groups=["Interactables"]]
+position = Vector2(-3, 162)
+
+[node name="Sprite2D" type="Sprite2D" parent="TestBuilding2"]
+position = Vector2(559.5, 146.5)
+scale = Vector2(0.828125, 0.859375)
+texture = SubResource("GradientTexture2D_80au1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestBuilding2"]
+position = Vector2(559.25, 146.5)
+shape = SubResource("RectangleShape2D_ixo7p")
+
+[node name="Interactable" parent="TestBuilding2" instance=ExtResource("6_vt7vv")]
+object_dialogue_scene = ExtResource("8_7mxic")
+object_dialogue_start = "building3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestBuilding2/Interactable"]
+position = Vector2(559, 146.5)
+shape = SubResource("RectangleShape2D_b4e8w")
+
+[node name="TestGlassCase" type="StaticBody2D" parent="." groups=["Interactables"]]
+position = Vector2(280, -31)
+
+[node name="Sprite2D" type="Sprite2D" parent="TestGlassCase"]
+position = Vector2(559.5, 146.5)
+scale = Vector2(0.828125, 0.859375)
+texture = SubResource("GradientTexture2D_80au1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestGlassCase"]
+position = Vector2(559.25, 146.5)
+shape = SubResource("RectangleShape2D_ixo7p")
+
+[node name="Interactable" parent="TestGlassCase" instance=ExtResource("6_vt7vv")]
+object_dialogue_scene = ExtResource("8_7mxic")
+object_dialogue_start = "glass_case"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestGlassCase/Interactable"]
+position = Vector2(559, 146.5)
+shape = SubResource("RectangleShape2D_b4e8w")
+
+[node name="TestBakeryDoor" type="StaticBody2D" parent="." groups=["Interactables"]]
+position = Vector2(538, 41)
+
+[node name="Sprite2D" type="Sprite2D" parent="TestBakeryDoor"]
+position = Vector2(559.5, 146.5)
+scale = Vector2(0.828125, 0.859375)
+texture = SubResource("GradientTexture2D_80au1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestBakeryDoor"]
+position = Vector2(559.25, 146.5)
+shape = SubResource("RectangleShape2D_ixo7p")
+
+[node name="Interactable" parent="TestBakeryDoor" instance=ExtResource("6_vt7vv")]
+object_dialogue_scene = ExtResource("8_7mxic")
+object_dialogue_start = "bakery_door"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestBakeryDoor/Interactable"]
+position = Vector2(559, 146.5)
+shape = SubResource("RectangleShape2D_b4e8w")
+
+[node name="TestTables" type="StaticBody2D" parent="." groups=["Interactables"]]
+position = Vector2(386, 172)
+
+[node name="Sprite2D" type="Sprite2D" parent="TestTables"]
+position = Vector2(559.5, 146.5)
+scale = Vector2(0.828125, 0.859375)
+texture = SubResource("GradientTexture2D_80au1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestTables"]
+position = Vector2(559.25, 146.5)
+shape = SubResource("RectangleShape2D_ixo7p")
+
+[node name="Interactable" parent="TestTables" instance=ExtResource("6_vt7vv")]
+object_dialogue_scene = ExtResource("8_7mxic")
+object_dialogue_start = "tables"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestTables/Interactable"]
+position = Vector2(559, 146.5)
+shape = SubResource("RectangleShape2D_b4e8w")
+
+[node name="TestCashier" type="StaticBody2D" parent="." groups=["Interactables"]]
+position = Vector2(388, -95)
+
+[node name="Sprite2D" type="Sprite2D" parent="TestCashier"]
+position = Vector2(559.5, 146.5)
+scale = Vector2(0.828125, 0.859375)
+texture = SubResource("GradientTexture2D_80au1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestCashier"]
+position = Vector2(559.25, 146.5)
+shape = SubResource("RectangleShape2D_ixo7p")
+
+[node name="Interactable" parent="TestCashier" instance=ExtResource("6_vt7vv")]
+object_dialogue_scene = ExtResource("8_7mxic")
+object_dialogue_start = "register"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestCashier/Interactable"]
+position = Vector2(559, 146.5)
+shape = SubResource("RectangleShape2D_b4e8w")

@@ -4,15 +4,9 @@ extends Area2D
 var interact = false 
 var current_object 
 
-func _process(_delta):
-	if interact:
-		if Input.is_action_just_pressed("interact"):
-			current_object.on_interact()
-
-func _on_body_entered(body):
-	if body.is_in_group("Interactables"):
-		interact = true
-		current_object = body
-
-func _on_body_exited(_body):
-	interact = false
+func _unhandled_input(event):
+	if Input.is_action_just_pressed("interact"):
+		var interactables = get_overlapping_areas()
+		if interactables.size() > 0:
+			interactables[0].on_interact()
+			return
