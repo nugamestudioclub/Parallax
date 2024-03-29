@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cy3jyw4caroht"]
+
+[ext_resource type="Script" path="res://prefabs/Doors/door.gd" id="1_mc3hc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gl80n"]
+size = Vector2(58, 82)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y703c"]
+size = Vector2(64, 42)
+
+[node name="Door" type="StaticBody2D"]
+script = ExtResource("1_mc3hc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -4)
+shape = SubResource("RectangleShape2D_gl80n")
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+position = Vector2(-1, 35)
+shape = SubResource("RectangleShape2D_y703c")
+
+[node name="PlayerEntrance" type="Node2D" parent="."]
+
+[connection signal="area_entered" from="PlayerDetection" to="." method="_on_player_detection_area_entered"]
