@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://scph305jasxt"]
+[gd_scene load_steps=6 format=3 uid="uid://scph305jasxt"]
 
 [ext_resource type="Texture2D" uid="uid://cnjgdog2ml0t4" path="res://2d_sprite_animation_assets/blueprint2.png" id="1_1a53y"]
-[ext_resource type="PackedScene" uid="uid://du2wo2jo12ii4" path="res://prefabs/rug.tscn" id="2_0y7bm"]
-[ext_resource type="PackedScene" uid="uid://1je7l5nrvacv" path="res://prefabs/dresser.tscn" id="3_55o21"]
-[ext_resource type="PackedScene" uid="uid://dp25oj3bfj2uy" path="res://prefabs/mirror.tscn" id="4_44uaj"]
+[ext_resource type="PackedScene" uid="uid://ccunmu41kcexn" path="res://prefabs/rug.tscn" id="2_0y7bm"]
+[ext_resource type="Texture2D" uid="uid://2fguetmqmejp" path="res://2d_sprite_animation_assets/floor.png" id="2_jcoc7"]
+[ext_resource type="PackedScene" uid="uid://3rti72e4wfw2" path="res://prefabs/dresser.tscn" id="3_55o21"]
+[ext_resource type="PackedScene" uid="uid://dkkfh20o51g5j" path="res://prefabs/mirror.tscn" id="4_44uaj"]
 
 [node name="name_bedroom" type="Node2D"]
 
@@ -11,6 +12,11 @@
 position = Vector2(569.75, 327.75)
 scale = Vector2(1.34247, 1.26413)
 texture = ExtResource("1_1a53y")
+
+[node name="floor" type="Sprite2D" parent="."]
+position = Vector2(574, 417)
+scale = Vector2(1.189, 0.925002)
+texture = ExtResource("2_jcoc7")
 
 [node name="rug" parent="." instance=ExtResource("2_0y7bm")]
 position = Vector2(568, 402)
