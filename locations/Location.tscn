@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6t0kg65faw1e"]
+
+[ext_resource type="Script" path="res://locations/Location.gd" id="1_8oaks"]
+[ext_resource type="Script" path="res://Resources/LocationData.gd" id="2_lbcu0"]
+[ext_resource type="PackedScene" uid="uid://cy3jyw4caroht" path="res://prefabs/Doors/door.tscn" id="3_myyu8"]
+[ext_resource type="PackedScene" uid="uid://dfbehluabfs6p" path="res://prefabs/player_new.tscn" id="4_rlprn"]
+
+[node name="Location" type="Node2D" node_paths=PackedStringArray("data")]
+script = ExtResource("1_8oaks")
+data = NodePath("LocationData")
+
+[node name="LocationData" type="Node2D" parent="." node_paths=PackedStringArray("entrance", "player")]
+script = ExtResource("2_lbcu0")
+entrance = NodePath("../Door")
+player = NodePath("../Player")
+
+[node name="Door" parent="." instance=ExtResource("3_myyu8")]
+position = Vector2(587, 73)
+
+[node name="Player" parent="." instance=ExtResource("4_rlprn")]
